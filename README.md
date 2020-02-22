@@ -139,26 +139,7 @@ In the table below is listed all the requirement which are not implemented in th
 
 ## General Use Case(Actors, features)
 
-```plantuml
-@startuml
-left to right direction
-skinparam packageStyle rectangle
-actor user
-
-rectangle usecase {
-  user -- (Popular movies)
-  user -- (Search movies) : NO need to login
-  user -- (login)
-note right of (Search movies)
-  TMDB API
-end note
-  user -- (Add to database) : using mysql
-  user -- (Delete from database) : using mysql
-  user -- (See personal information)
- 
-}  
-@enduml
-```
+![](/images/uc.png)
 
 # Class Diagram
 ```plantuml
