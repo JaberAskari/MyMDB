@@ -1,0 +1,69 @@
+﻿<Page x:Class="MDB.View.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MDB.View"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="950"
+      Title="Login">
+
+    <Grid x:Name="grdMain" Height="750" Width="950" Margin="0">
+        
+        <Grid Margin="50 20 50 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock x:Name="txtwelcome" Text="Welcome" TextWrapping="WrapWithOverflow" FontSize="20" FontWeight="bold" Foreground="#FF226A96" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 0"/>
+
+            <TextBlock Text="Please insert your username and password" MaxWidth="300" TextWrapping="WrapWithOverflow" FontSize="16" FontWeight="bold" Foreground="#FF226A96" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="280 120 0 0"/>
+
+            <!--User name-->
+            <TextBlock Text="Email: " FontSize="15" Foreground="#FF226A96" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="280 0 0 0" />
+            <TextBox x:Name="txbEmail" Text="" FontSize="15" Grid.Column="0" Grid.Row="1" Padding="5 5 5 5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF226A96" Height="35" Width="300" Background="#FFCCDFE6"/>
+
+            <!--Password box-->
+            <TextBlock Text="Password: " FontSize="15" Foreground="#FF226A96" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="280 0 0 0" />
+            <PasswordBox x:Name="txbPassword"  FontSize="15" Grid.Column="0" Grid.Row="2"  Padding="15 5 5 5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF226A96" Height="35" Width="300" Background="#FFCCDFE6"/>
+
+            <!--Sign in button-->
+            <Button x:Name="btnSignIn" Style="{StaticResource MyButton}" Grid.Column="0" Grid.Row="3" Height="35" Width="300" VerticalAlignment="Center" Margin="0 0 0 0" Background="#FF226A96" Foreground="White" Click="btnSignIn_Click" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Login" Height="30" Width="30" HorizontalAlignment="Left" ></materialDesign:PackIcon>
+                    <TextBlock Text="SIGN IN" FontSize="16" FontWeight="Bold" Padding="5" Margin="5 0 0 0"/>
+                </StackPanel>
+            </Button>
+
+            <!--Sign up button-->
+            <TextBlock Text="You do not have an account! Click on Sign Up button to create one." MaxWidth="300" TextWrapping="WrapWithOverflow" FontSize="16" FontWeight="Bold" Foreground="#FF226A96" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280 5 0 0"/>
+            <Button x:Name="btnSignUp" Style="{StaticResource MyButton}" Grid.Column="0" Grid.Row="4" Height="35" Width="300" VerticalAlignment="Bottom" Margin="0 0 0 0" Background="#FF226A96" Foreground="White" Click="btnSignUp_Click">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Create" Height="30" Width="30" HorizontalAlignment="Left" ></materialDesign:PackIcon>
+                    <TextBlock Text="SIGN UP" FontSize="16" FontWeight="Bold" Padding="5" Margin="5 0 0 0"/>
+                </StackPanel>
+            </Button>
+
+            <!--MyMDB Logo-->
+            <Grid  Grid.Row="0" Margin="10 0 0 0" VerticalAlignment="Top">
+                <TextBlock Foreground="#FF3FA556" Padding="0" HorizontalAlignment="Left" Margin="280 0 0 0">
+                    <materialDesign:PackIcon Kind="Tv" Height="80" Width="100"></materialDesign:PackIcon  >
+                </TextBlock>
+                <TextBlock Text="MyMDB"  HorizontalAlignment="Left"  Padding="0" Margin="375 0 0 0" Width="170" Height="auto" FontWeight="Bold" 
+                        Foreground="#FF3FA556"  VerticalAlignment="Center"  FontSize="40" FontFamily="Stencil" />
+            </Grid>
+
+            <TextBlock x:Name="txtMessage" Text="{Binding}" Grid.Row="5" Foreground="Red" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        </Grid>
+
+
+    </Grid>
+</Page>

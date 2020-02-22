@@ -1,0 +1,53 @@
+﻿<Page x:Class="MDB.View.PopularMovies"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:MDB.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="950"
+      Title="PopularMovies">
+
+
+    <Grid x:Name="grdMain" Height="750" Width="950" Margin="0" Background="Wheat">
+        
+            <!--Ritht side bar, image and description-->
+            <Grid HorizontalAlignment="Right" Width="300" Height="750"  >
+                <Image x:Name="imgPoster" HorizontalAlignment="Left" Height="330" Margin="35 10" VerticalAlignment="Top" Width="230" Source="../photos/movie.png"/>
+                <TextBlock x:Name="txtNameM" Height="45" Margin="5" Padding="5" Text="Title : " FontSize="14" FontWeight="Bold" TextWrapping="Wrap" />
+                
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="350" Margin=" 0 0 0 0" VerticalAlignment="Bottom">
+                    <TextBlock x:Name="txtDescription" Text="Description" FontSize="14" Padding="20 20 20 20" Height="auto" Margin="10 10 10 30" TextWrapping="WrapWithOverflow" HorizontalAlignment="Stretch"/>
+                </ScrollViewer>     
+            </Grid>
+       <!--Main grid for data and navigation buttons for going forward and backward-->
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="650 " Height="750" Background="#FFBCCBD6" Margin="0 0 0 0" Grid.ColumnSpan="2">
+            <TextBlock x:Name="txtMessage" Text="Results for popular movies:" MaxWidth="500" MaxHeight="50" FontSize="16" Foreground="#FF226A96" Margin="20 20 10 10" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+            <!--Main data grid for getting data from api-->
+            <DataGrid x:Name="dgMovies" ItemsSource="{Binding}" Margin="0 80 0 80" BorderBrush="{x:Null}" Loaded="dgMovies_Loaded" SelectionChanged="dgMovies_SelectionChanged" IsReadOnly="True" ></DataGrid>
+            
+            <!--Navigation buttons next and previous-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom"  Height="80" HorizontalAlignment="Center" >
+                <!--previous page button-->
+                <Button x:Name="btnPrevious" Style="{StaticResource MyButton}" Foreground="#FF226A96" Background="#FFBCCBD6" IsEnabled="False" Height="30" Width="30" Click="btnPrevious_Click"  >
+                    <materialDesign:PackIcon Kind="ArrowLeftBoldBoxOutline" Height="30" Width="30"></materialDesign:PackIcon>
+                </Button>
+
+                <TextBlock x:Name="txtPageNumLast" Text="0" FontSize="12"  VerticalAlignment="Center" Foreground="#FF226A96" Margin="10 0 0 0" Visibility="Hidden"/>
+                <TextBlock x:Name="txtPageNumCur" Text="1" FontSize="16" FontWeight="Bold" VerticalAlignment="Center" Foreground="#FF226A96" Margin="10 0" />
+                <TextBlock x:Name="txtPageNumNext" Text="2" FontSize="12"  VerticalAlignment="Center" Foreground="#FF226A96" Margin="0 0 " />
+                <TextBlock x:Name="txtPageNumMax"  FontSize="14"  VerticalAlignment="Center" Foreground="#FF226A96" Margin="10 0 " />
+                
+                <!--Next page button-->
+                <Button x:Name="btnNext" Style="{StaticResource MyButton}" Foreground="#FF226A96" Background="#FFBCCBD6" Height="30" Width="30" Click="btnNext_Click"  >
+                    <materialDesign:PackIcon Kind="ArrowRightBoldBoxOutline" Height="30" Width="30"></materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</Page>
