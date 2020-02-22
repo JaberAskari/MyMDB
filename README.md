@@ -142,66 +142,9 @@ In the table below is listed all the requirement which are not implemented in th
 ![](/images/uc.png)
 
 # Class Diagram
-```plantuml
-@startuml
-
-class UserModel {
-+FirstName
-+LastName
--EmailAddress
--phoneNumber
--Password
--Photo_Path
--ShowInformation ()
-+AddUser
-}
-
-class FavoriteListModel {
-    -FListID
-    +FListName
-    -Add()
-    -Remove()
-}
-
-class  DiscoverMovieModel{
-    +page
-    +total_results
-    +total-pages
-    +list<RootDiscoverMovieModel>Results
-    -Search()
-    +PopularMovies()
-}
+![](/images/cd.png)
 
 
-class RootDiscoverMovieModel{
-    +Title
-    +ID
-    +Release_date
-    +Rating
-    +Adult
-    +Overview
-    +Poster_path
-    +Genre
-    -Delete()
-    -Add()
-}
-
-class GenreModel{
-    -ID
-    +Name
-    +GetGenreList()
-}
-
-
-
-UserModel --{ RootDiscoverMovieModel
-UserModel --{ FavoriteListModel
-DiscoverMovieModel --{ RootDiscoverMovieModel
-FavoriteListModel --{ RootDiscoverMovieModel
-RootDiscoverMovieModel --{ GenreModel
-
-@enduml
-```
 # Mysql tables database
 In Mysql server I have made 3 tables for the application.
 * User
